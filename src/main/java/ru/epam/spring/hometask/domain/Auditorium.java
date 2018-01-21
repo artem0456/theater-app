@@ -1,4 +1,4 @@
-package ua.epam.spring.hometask.domain;
+package ru.epam.spring.hometask.domain;
 
 import java.util.Collection;
 import java.util.Collections;

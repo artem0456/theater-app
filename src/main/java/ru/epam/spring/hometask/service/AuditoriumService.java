@@ -1,11 +1,11 @@
-package ua.epam.spring.hometask.service;
+package ru.epam.spring.hometask.service;
 
 import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import ua.epam.spring.hometask.domain.Auditorium;
+import ru.epam.spring.hometask.domain.Auditorium;
 
 /**
  * @author Yuriy_Tkach
