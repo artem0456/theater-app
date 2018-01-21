@@ -12,9 +12,17 @@ public class Ticket extends DomainObject implements Comparable<Ticket> {
     private Event event;
     private LocalDateTime dateTime;
     private long seat;
+    private boolean isVipSeat;
+
+    public boolean isVipSeat() {
+        return isVipSeat;
+    }
+
 
     public Ticket(User user, Event event,
-                  LocalDateTime dateTime, long seat) {
+                  LocalDateTime dateTime, long seat,
+                  boolean isVipSeat) {
+        this.isVipSeat = isVipSeat;
         this.user = user;
         this.event = event;
         this.dateTime = dateTime;
