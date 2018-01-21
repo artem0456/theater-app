@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
 
-public class BirthdayDiscountImpl implements Discount {
+public class BirthdayDiscountStrategyImpl implements Discount {
 
     private static final byte BIRTHDAY_DISCOUNT = 5;
 

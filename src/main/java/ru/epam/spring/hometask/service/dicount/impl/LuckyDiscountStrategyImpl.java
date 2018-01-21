@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.time.LocalDateTime;
 
-public class LuckyDiscountImpl implements Discount {
+public class LuckyDiscountStrategyImpl implements Discount {
 
     private static final byte LUCKY_DISCOUNT = 50;
     private static final long EACH_TICKET = 10;
