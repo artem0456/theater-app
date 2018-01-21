@@ -4,7 +4,7 @@ import ru.epam.spring.hometask.domain.Event;
 import ru.epam.spring.hometask.domain.User;
 import ru.epam.spring.hometask.service.DiscountService;
 import ru.epam.spring.hometask.service.UserService;
-import ru.epam.spring.hometask.service.dicount.DiscountStrategy;
+import ru.epam.spring.hometask.service.dicount.Discount;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -14,7 +14,7 @@ import java.util.List;
 public class DiscountServiceImpl implements DiscountService {
 
     private UserService userService;
-    private List<DiscountStrategy> discounts;
+    private List<Discount> discounts;
 
     @Override
     public byte getDiscount(@Nullable User user, @Nonnull Event event,
@@ -24,7 +24,7 @@ public class DiscountServiceImpl implements DiscountService {
         User userToCountDiscount = checkIfRegisteredUser(userFromDB, user);
 
         byte currentDiscount = 0;
-        for (DiscountStrategy discount : discounts) {
+        for (Discount discount : discounts) {
             byte obtainedDiscount = discount.getDiscount(userToCountDiscount, event, airDateTime, numberOfTickets);
             if (currentDiscount < obtainedDiscount) {
                 currentDiscount = obtainedDiscount;
@@ -39,7 +39,7 @@ public class DiscountServiceImpl implements DiscountService {
         this.userService = userService;
     }
 
-    public void setDiscounts(List<DiscountStrategy> discounts) {
+    public void setDiscounts(List<Discount> discounts) {
         this.discounts = discounts;
     }
 

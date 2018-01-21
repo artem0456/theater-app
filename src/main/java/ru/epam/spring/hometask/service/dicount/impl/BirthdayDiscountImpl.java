@@ -2,16 +2,15 @@ package ru.epam.spring.hometask.service.dicount.impl;
 
 import ru.epam.spring.hometask.domain.Event;
 import ru.epam.spring.hometask.domain.User;
-import ru.epam.spring.hometask.service.dicount.DiscountStrategy;
+import ru.epam.spring.hometask.service.dicount.Discount;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
 
-public class BirthdayDiscountStrategyImpl implements DiscountStrategy {
+public class BirthdayDiscountImpl implements Discount {
 
     private static final byte BIRTHDAY_DISCOUNT = 5;
 

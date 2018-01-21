@@ -2,13 +2,13 @@ package ru.epam.spring.hometask.service.dicount.impl;
 
 import ru.epam.spring.hometask.domain.Event;
 import ru.epam.spring.hometask.domain.User;
-import ru.epam.spring.hometask.service.dicount.DiscountStrategy;
+import ru.epam.spring.hometask.service.dicount.Discount;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.time.LocalDateTime;
 
-public class LuckyDiscountStrategyImpl implements DiscountStrategy{
+public class LuckyDiscountImpl implements Discount {
 
     private static final byte LUCKY_DISCOUNT = 50;
     private static final long EACH_TICKET = 10;
