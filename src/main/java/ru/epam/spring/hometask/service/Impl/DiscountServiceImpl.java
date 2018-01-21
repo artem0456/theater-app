@@ -9,8 +9,10 @@ import javax.annotation.Nullable;
 import java.time.LocalDateTime;
 
 public class DiscountServiceImpl implements DiscountService {
+
     @Override
-    public byte getDiscount(@Nullable User user, @Nonnull Event event, @Nonnull LocalDateTime airDateTime, long numberOfTickets) {
+    public byte getDiscount(@Nullable User user, @Nonnull Event event,
+                            @Nonnull LocalDateTime airDateTime, long numberOfTickets) {
         return 0;
     }
 }
