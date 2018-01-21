@@ -9,10 +9,11 @@
 				http://www.springframework.org/schema/context
                 http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <import resource="userServiceSpring.xml"/>
-    <import resource="eventServiceSpring.xml"/>
-    <import resource="auditoriumContext.xml"/>
-    <import resource="discountSpring.xml"/>
-    <import resource="bookingServiceSpring.xml"/>
+    <bean id="bookingServiceImpl" class="com.epam.spring.core.service.impl.BookingServiceImpl">
+        <property name="discountService" ref="discountServiceImpl"/>
+        <property name="auditoriumService" ref="auditoriumServiceImpl"/>
+        <property name="eventService" ref="eventServiceImpl"/>
+        <property name="userService" ref="userServiceImpl"/>
+    </bean>
 
 </beans>

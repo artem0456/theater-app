@@ -84,5 +84,24 @@ public class BookingServiceImpl implements BookingService {
         Auditorium auditorium = auditoriums.get(dateTime);
         return auditorium.getTickets();
     }
+
+
+    public void setDiscountService(DiscountService discountService) {
+        this.discountService = discountService;
+    }
+
+    public void setAuditoriumService(AuditoriumService auditoriumService) {
+        this.auditoriumService = auditoriumService;
+    }
+
+    public void setEventService(EventService eventService) {
+        this.eventService = eventService;
+    }
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+
 }
 
