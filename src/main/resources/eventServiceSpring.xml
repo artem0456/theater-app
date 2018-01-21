@@ -9,9 +9,13 @@
 				http://www.springframework.org/schema/context
                 http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <import resource="auditoriumContext.xml"/>
-    <import resource="discountSpring.xml"/>
-    <import resource="userServiceSpring.xml"/>
-    <import resource="eventServiceSpring.xml"/>
+    <bean id="eventServiceImpl" class="com.epam.spring.core.service.impl.EventServiceImpl">
+        <property name="eventServiceDao" ref="eventServiceDao"/>
+    </bean>
+
+    <bean id="eventServiceDao" class="com.epam.spring.core.dao.EventServiceDao">
+    </bean>
+
+
 
 </beans>
