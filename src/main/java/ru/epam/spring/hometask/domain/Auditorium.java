@@ -37,10 +37,6 @@ public class Auditorium {
         return seats.stream().filter(seat -> vipSeats.contains(seat)).count();
     }
 
-    public boolean isSeatVip(Long id) {
-        return vipSeats.contains(id);
-    }
-
     public String getName() {
         return name;
     }
@@ -56,7 +52,7 @@ public class Auditorium {
     public void setNumberOfSeats(long numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
-    
+
     public Set<Long> getAllSeats() {
         return LongStream.range(1, numberOfSeats+1).boxed().collect(Collectors.toSet());
     }

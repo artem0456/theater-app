@@ -14,15 +14,8 @@ public class Ticket extends DomainObject implements Comparable<Ticket> {
     private long seat;
     private boolean isVipSeat;
 
-    public boolean isVipSeat() {
-        return isVipSeat;
-    }
-
-
     public Ticket(User user, Event event,
-                  LocalDateTime dateTime, long seat,
-                  boolean isVipSeat) {
-        this.isVipSeat = isVipSeat;
+                  LocalDateTime dateTime, long seat) {
         this.user = user;
         this.event = event;
         this.dateTime = dateTime;
@@ -96,6 +89,11 @@ public class Ticket extends DomainObject implements Comparable<Ticket> {
             result = Long.compare(seat, other.getSeat());
         }
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket [id=" + getId() +  ", user=" + user + ", event=" + event + ", dateTime=" + dateTime + ", seat=" + seat + "]";
     }
 
 }
