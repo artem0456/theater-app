@@ -1,25 +1,40 @@
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>ru.epam.spring.hometask</groupId>
-    <artifactId>movie-theater</artifactId>
-    <version>1.0</version>
+    <groupId>com.epam.spring.core</groupId>
+    <artifactId>hometask-skeleton</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <name>Spring Core Hometask Skeleton</name>
     <description>A skeleton project for the students of Spring Core MOOC course that can be used to do the hometask assignment</description>
 
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <spring.version>4.2.2.RELEASE</spring.version>
+        <spring.version>4.2.5.RELEASE</spring.version>
         <findbugs.version>3.0.1</findbugs.version>
         <junit.version>4.12</junit.version>
+
     </properties>
 
     <build>
         <resources>
             <resource>
+                <filtering>true</filtering>
+                <directory>src/test/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*local.properties</exclude>
+                </excludes>
+            </resource>
+            <resource>
                 <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
             </resource>
         </resources>
         <plugins>
@@ -103,20 +118,10 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-context-support</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <scope>test</scope>
             <version>${spring.version}</version>
         </dependency>
+
 
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
@@ -140,3 +145,142 @@
         <url>https://git.epam.com/yuriy_tkach/spring-core-hometask-skeleton/issues</url>
     </issueManagement>
 </project>
+        <!--<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+        <!--xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">-->
+        <!--<modelVersion>4.0.0</modelVersion>-->
+        <!--<groupId>com.epam.spring.core</groupId>-->
+        <!--<artifactId>hometask-1</artifactId>-->
+        <!--<version>1.0-SNAPSHOT</version>-->
+        <!--<name>Spring Core Hometask Skeleton</name>-->
+        <!--<description>Hometask1</description>-->
+
+        <!--<properties>-->
+        <!--<java.version>1.8</java.version>-->
+        <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+
+        <!--<spring.version>3.2.16.RELEASE</spring.version>-->
+        <!--<findbugs.version>3.0.1</findbugs.version>-->
+        <!--<junit.version>4.12</junit.version>-->
+        <!--</properties>-->
+
+        <!--<build>-->
+        <!--<resources>-->
+        <!--<resource>-->
+        <!--<directory>src/main/resources</directory>-->
+        <!--<filtering>false</filtering>-->
+        <!--<targetPath>../resources</targetPath>-->
+        <!--<includes>-->
+        <!--<include>**/*</include>-->
+        <!--</includes>-->
+        <!--</resource>-->
+        <!--</resources>-->
+        <!--<plugins>-->
+        <!--<plugin>-->
+        <!--<groupId>org.apache.maven.plugins</groupId>-->
+        <!--<artifactId>maven-compiler-plugin</artifactId>-->
+        <!--<version>3.3</version>-->
+        <!--<configuration>-->
+        <!--<source>${java.version}</source>-->
+        <!--<target>${java.version}</target>-->
+        <!--<compilerVersion>${java.version}</compilerVersion>-->
+        <!--<encoding>${project.build.sourceEncoding}</encoding>-->
+        <!--<fork>true</fork>-->
+        <!--<showDeprecation>true</showDeprecation>-->
+        <!--<showWarnings>true</showWarnings>-->
+        <!--</configuration>-->
+        <!--</plugin>-->
+        <!--<plugin>-->
+        <!--<groupId>org.apache.maven.plugins</groupId>-->
+        <!--<artifactId>maven-source-plugin</artifactId>-->
+        <!--<version>2.2.1</version>-->
+        <!--<configuration>-->
+        <!--<lineLength>120</lineLength>-->
+        <!--<includePom>true</includePom>-->
+        <!--</configuration>-->
+        <!--<executions>-->
+        <!--<execution>-->
+        <!--<id>attach-sources</id>-->
+        <!--<goals>-->
+        <!--<goal>jar</goal>-->
+        <!--</goals>-->
+        <!--</execution>-->
+        <!--</executions>-->
+        <!--</plugin>-->
+        <!--<plugin>-->
+        <!--<groupId>org.apache.maven.plugins</groupId>-->
+        <!--<artifactId>maven-resources-plugin</artifactId>-->
+        <!--<version>2.6</version>-->
+        <!--<configuration>-->
+        <!--<encoding>${project.build.sourceEncoding}</encoding>-->
+        <!--</configuration>-->
+        <!--</plugin>-->
+        <!--<plugin>-->
+        <!--<groupId>org.codehaus.mojo</groupId>-->
+        <!--<artifactId>findbugs-maven-plugin</artifactId>-->
+        <!--<version>3.0.3</version>-->
+        <!--</plugin>-->
+        <!--</plugins>-->
+        <!--</build>-->
+
+        <!--<reporting>-->
+        <!--<plugins>-->
+        <!--<plugin>-->
+        <!--<groupId>org.codehaus.mojo</groupId>-->
+        <!--<artifactId>findbugs-maven-plugin</artifactId>-->
+        <!--<version>3.0.3</version>-->
+        <!--&lt;!&ndash;<configuration>&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash; Enables analysis which takes more memory but finds &ndash;&gt;-->
+        <!--&lt;!&ndash;more bugs. If you run out of memory, changes the value of the effort element &ndash;&gt;-->
+        <!--&lt;!&ndash;to 'Low'. &ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<effort>Max</effort>&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash; Build doesn't fail if problems are found &ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<failOnError>false</failOnError>&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash; Reports all bugs (other values are medium and max) &ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<threshold>Low</threshold>&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash; Produces XML report &ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<xmlOutput>true</xmlOutput>&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash; Configures the directory in which the XML report &ndash;&gt;-->
+        <!--&lt;!&ndash;is created &ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>&ndash;&gt;-->
+        <!--&lt;!&ndash;</configuration>&ndash;&gt;-->
+        <!--</plugin>-->
+        <!--</plugins>-->
+        <!--</reporting>-->
+
+        <!--<dependencies>-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>spring-context</artifactId>-->
+        <!--<version>${spring.version}</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+        <!--<groupId>com.google.code.findbugs</groupId>-->
+        <!--<artifactId>jsr305</artifactId>-->
+        <!--<version>${findbugs.version}</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>spring-test</artifactId>-->
+        <!--<version>${spring.version}</version>-->
+        <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!---->
+        <!--<dependency>-->
+        <!--<groupId>junit</groupId>-->
+        <!--<artifactId>junit</artifactId>-->
+        <!--<version>${junit.version}</version>-->
+        <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!---->
+        <!--</dependencies>-->
+        <!--<organization>-->
+        <!--<name>EPAM Systems</name>-->
+        <!--<url>http://epam.com</url>-->
+        <!--</organization>-->
+        <!--<issueManagement>-->
+        <!--<system>GIT</system>-->
+        <!--<url>https://git.epam.com/yuriy_tkach/spring-core-hometask-skeleton/issues</url>-->
+        <!--</issueManagement>-->
+        <!--</project>-->

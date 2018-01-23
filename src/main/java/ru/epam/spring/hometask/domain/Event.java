@@ -28,6 +28,9 @@ public class Event extends DomainObject {
         this.basePrice = basePrice;
         this.rating = rating;
     }
+    public Event(){
+
+    }
     /**
      * Checks if event is aired on particular <code>dateTime</code> and assigns
      * auditorium to it.
