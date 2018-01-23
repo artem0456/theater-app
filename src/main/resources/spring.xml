@@ -67,7 +67,7 @@
 	</bean>
 	
 	<bean id="userService" class="ru.epam.spring.hometask.service.impl.UserServiceImpl">
-		<property name="userDAO" ref="userDAO"></property>
+		<property name="userDAO" ref="userDAO"/>
 	</bean>
 	
 	<bean id="app" class="ru.epam.spring.hometask.App">
