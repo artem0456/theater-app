@@ -11,23 +11,23 @@
 
 
     <bean name="birthdayDiscountStrategyImpl"
-          class="com.epam.spring.core.service.discount.impl.BirthdayDiscountStrategyImpl"/>
+          class="com.epam.spring.core.service.discountStrategy.impl.BirthdayDiscountStrategyImpl"/>
 
     <bean name="luckyDiscountStrategyImpl"
-          class="com.epam.spring.core.service.discount.impl.LuckyDiscountStrategyImpl"/>
+          class="com.epam.spring.core.service.discountStrategy.impl.LuckyDiscountStrategyImpl"/>
 
 
     <bean id="discountServiceImpl" class="com.epam.spring.core.service.impl.DiscountServiceImpl">
         <property name="userService" ref="userServiceImpl"/>
-        <property name="discounts">
+        <property name="discountStrategies">
             <list>
                 <bean id="birthdayDiscountStrategy"
-                      class="com.epam.spring.core.service.discount.DiscountStrategy"
+                      class="com.epam.spring.core.service.discountStrategy.DiscountStrategy"
                       factory-method="getDiscount">
                     <constructor-arg ref="birthdayDiscountStrategyImpl"/>
                 </bean>
                 <bean id="happyDiscount"
-                      class="com.epam.spring.core.service.discount.DiscountStrategy"
+                      class="com.epam.spring.core.service.discountStrategy.DiscountStrategy"
                       factory-method="getDiscount">
                     <constructor-arg ref="luckyDiscountStrategyImpl"/>
                 </bean>
