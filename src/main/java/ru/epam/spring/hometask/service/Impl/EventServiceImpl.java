@@ -1,6 +1,5 @@
 package ru.epam.spring.hometask.service.Impl;
 
-import ru.epam.spring.hometask.dao.EventServiceDao;
 import ru.epam.spring.hometask.domain.Event;
 import ru.epam.spring.hometask.service.EventService;
 

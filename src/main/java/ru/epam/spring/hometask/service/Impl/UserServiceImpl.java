@@ -1,6 +1,5 @@
 package ru.epam.spring.hometask.service.Impl;
 
-import ru.epam.spring.hometask.dao.UserDao;
 import ru.epam.spring.hometask.domain.User;
 import ru.epam.spring.hometask.service.UserService;
 
