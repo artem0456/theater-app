@@ -1,11 +1,10 @@
 package ru.epam.spring.hometask.service.discount.impl;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 import ru.epam.spring.hometask.domain.Event;
 import ru.epam.spring.hometask.domain.User;
 import ru.epam.spring.hometask.service.discount.DiscountStrategy;
+
+import java.time.LocalDateTime;
 
 public class BirthdayDiscountStrategy implements DiscountStrategy {
 
@@ -16,16 +15,16 @@ public class BirthdayDiscountStrategy implements DiscountStrategy {
     }
 
     @Override
-    public byte getDiscount(User user, Event event,
-                            LocalDateTime airDateTime, long numberOfTickets) {
+    public byte getDiscount( User user, Event event,
+                             LocalDateTime airDateTime, long numberOfTickets) {
+
         if( user != null && user.getBirthday() != null ) {
-            LocalDate birthDate = user.getBirthday();
-            birthDate = birthDate.plusYears(airDateTime.getYear() - birthDate.getYear());
 
-            if ( Math.abs(airDateTime.getDayOfYear() - user.getBirthday().getDayOfYear()) <= 5 ) {
+            int diff = Math.abs(airDateTime.getDayOfYear()
+                    - user.getBirthday().getDayOfYear());
 
+            if ( diff <= 5 )
                 return discount;
-            }
         }
         return 0;
     }

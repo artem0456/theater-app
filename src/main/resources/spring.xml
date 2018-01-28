@@ -55,7 +55,7 @@
 		<property name="ticketDAO" ref="ticketDAO"/>
 		<property name="discountService" ref="discountService"/>
 	</bean>
-	
+
 	<bean id="eventDAO" class="ru.epam.spring.hometask.dao.impl.EventDAOImpl">
 	</bean>
 

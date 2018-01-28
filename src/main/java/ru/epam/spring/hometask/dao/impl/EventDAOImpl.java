@@ -3,52 +3,20 @@ package ru.epam.spring.hometask.dao.impl;
 import ru.epam.spring.hometask.dao.EventDAO;
 import ru.epam.spring.hometask.domain.Event;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.List;
+import java.util.stream.Collectors;
 
-public class EventDAOImpl implements EventDAO {
+public class EventDAOImpl extends AbstractDaoImpl<Event> implements EventDAO {
 	
-	private Map<Long, Event> events = new HashMap<>();
-	
-	private Long sequenceId = 0L;
-
-	@Override
-	public Event save(Event event) {
-		if(event.getId() != null ) {
-			events.put(event.getId(), event);
-		} else {
-			event.setId(sequenceId++);
-			events.put(event.getId(), event);
-		}
-		return event;
-	}
-
-	@Override
-	public void remove(Event event) {
-		events.remove(event.getId());
-
-	}
-
-	@Override
-	public Event getById(long id) {
-		return events.get(id);
-	}
 
 	@Override
 	public Event getByName(String name) {
-		for (Event e : events.values()) {
-	        if (e.getName().equals(name)) {
-	            return e;
-	        }
-	    }
+		List<Event> listEvent = objects.values()
+                .stream()
+                .filter(value -> value.getName().equals(name))
+                .collect(Collectors.toList());
+		if (!listEvent.isEmpty()) return listEvent.get(0);
 		return null;
-	}
 
-	@Override
-	public Set<Event> getAll() {
-		return new HashSet<Event>(events.values());
 	}
-
 }

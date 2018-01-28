@@ -1,23 +1,13 @@
 package ru.epam.spring.hometask.dao;
 
+import ru.epam.spring.hometask.domain.Event;
+import ru.epam.spring.hometask.domain.Ticket;
+import ru.epam.spring.hometask.domain.User;
+
 import java.time.LocalDateTime;
 import java.util.Set;
 
-import ru.epam.spring.hometask.domain.Ticket;
-import ru.epam.spring.hometask.domain.Event;
-import ru.epam.spring.hometask.domain.User;
-
-public interface TicketDAO {
-	
-	Ticket save(Ticket ticket);
-	
-	void remove(Ticket ticket);
-	
-	Ticket getById(long id);
-	
+public interface TicketDAO extends AbstractDao<Ticket> {
 	Set<Ticket> getByEventByDateTime(Event event, LocalDateTime dateTime);
-	
-	Set<Ticket> getAll();
-	
 	Set<Ticket> getAllForUser(User user);
 }

@@ -1,17 +1,17 @@
 package ru.epam.spring.hometask.service.impl;
 
+import ru.epam.spring.hometask.dao.TicketDAO;
+import ru.epam.spring.hometask.domain.Event;
+import ru.epam.spring.hometask.domain.EventRating;
+import ru.epam.spring.hometask.domain.Ticket;
+import ru.epam.spring.hometask.domain.User;
+import ru.epam.spring.hometask.service.BookingService;
+import ru.epam.spring.hometask.service.DiscountService;
+
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
-import ru.epam.spring.hometask.dao.TicketDAO;
-import ru.epam.spring.hometask.domain.Ticket;
-import ru.epam.spring.hometask.domain.Event;
-import ru.epam.spring.hometask.domain.EventRating;
-import ru.epam.spring.hometask.domain.User;
-import ru.epam.spring.hometask.service.BookingService;
-import ru.epam.spring.hometask.service.DiscountService;
 
 public class BookingServiceImpl implements BookingService {
 
@@ -38,17 +38,11 @@ public class BookingServiceImpl implements BookingService {
 
         Set<Long> vipSeats = new HashSet<>(seats);
         vipSeats.retainAll(event.getAuditoriums().get(dateTime).getVipSeats());
+
         int vipSeatsNumber =  vipSeats.size();
-
-		/*System.out.println("discount: " + discount + " %");
-		System.out.println("seats: " + seats);
-		System.out.println("vipSeats: " + event.getAuditoriums().get(dateTime).getVipSeats());
-		System.out.println("intersect: " + vipSeats);
-		System.out.println(vipSeatsNumber);*/
-
         int nonVipSeatCount = seats.size() - vipSeatsNumber;
 
-        sum = base * ratingRate * (nonVipSeatCount + vipRate * vipSeatsNumber); // без скидки
+        sum = base * ratingRate * (nonVipSeatCount + vipRate * vipSeatsNumber);
         sum = (100 - discount) * sum / 100;
 
         return sum;
