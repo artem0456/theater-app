@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/util
+ 		http://www.springframework.org/schema/util/spring-util.xsd
+ 		http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+	
+
+    <util:list id="strategyList">
+		<bean id="birthdayDiscountStrategy" class="ru.epam.spring.hometask.service.discount.impl.BirthdayDiscountStrategy">
+			<constructor-arg value="${birthday.strategy.discount}" type="byte"/>
+		</bean>
+		<bean id="every10thDiscountStrategy" class="ru.epam.spring.hometask.service.discount.impl.Every10thDiscountStrategy">
+			<constructor-arg value="${every10th.strategy.discount}" type="byte"/>
+			<constructor-arg ref="ticketDAO" />
+		</bean>
+	</util:list>
+	
+	<bean id="discountService" class="ru.epam.spring.hometask.service.impl.DiscountServiceImpl">
+		<constructor-arg ref="strategyList"/>
+	</bean>
+	
+
+</beans>
